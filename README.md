@@ -1,3 +1,5 @@
+This is a forked version of Aegeaner/kafka-connector-redis. The comments and instructions below are either from the original repository or are comments given to me by Faisal. I have made some minor modifications that allow you to use a Redis instance that has requirepass enabled, by specifying the password field in your redis.config. Also, I have increased the default buffer cache used to buffer messages from Redis from 1K to 200 MB due to failures I observed while testing.
+
 Notice
 --
 I used [RedisReplicator](https://github.com/leonchen83/redis-replicator) as the Redis comand parser, so e.g. the List push command is defined as: [LPushCommand.java](https://github.com/leonchen83/redis-replicator/blob/master/src/main/java/com/moilioncircle/redis/replicator/cmd/impl/LPushCommand.java). The connector wrapped the command using its name as the key, with the serialization of the command as the value.
